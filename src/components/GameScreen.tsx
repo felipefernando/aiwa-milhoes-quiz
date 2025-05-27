@@ -59,7 +59,7 @@ const GameScreen = ({ questions, playerName, onGameComplete }: GameScreenProps) 
 
   const getAnswerButtonClass = (answerIndex: number) => {
     if (!showResult) {
-      return "bg-white hover:bg-blue-50 border-2 border-blue-300 text-gray-800 hover:border-blue-500";
+      return "bg-white hover:bg-red-50 border-2 border-red-300 text-gray-800 hover:border-red-500";
     }
     
     if (answerIndex === currentQuestion.correctAnswer) {
@@ -74,20 +74,20 @@ const GameScreen = ({ questions, playerName, onGameComplete }: GameScreenProps) 
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-700 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black opacity-20"></div>
       
-      <Card className="relative z-10 w-full max-w-4xl bg-gradient-to-br from-blue-50 to-indigo-100 border-4 border-blue-400 shadow-2xl">
+      <Card className="relative z-10 w-full max-w-4xl bg-gradient-to-br from-red-50 to-red-100 border-4 border-red-400 shadow-2xl">
         <CardHeader className="text-center pb-4">
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
-              <Trophy className="w-6 h-6 text-amber-600" />
+              <Trophy className="w-6 h-6 text-red-600" />
               <span className="font-bold text-gray-800">AIWA de MILHÕES</span>
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 bg-white px-3 py-1 rounded-full border-2 border-amber-400">
-                <Star className="w-4 h-4 text-amber-600" />
+              <div className="flex items-center gap-2 bg-white px-3 py-1 rounded-full border-2 border-red-400">
+                <Star className="w-4 h-4 text-red-600" />
                 <span className="font-bold text-gray-800">{correctAnswers} acertos</span>
               </div>
               
@@ -113,7 +113,7 @@ const GameScreen = ({ questions, playerName, onGameComplete }: GameScreenProps) 
         
         <CardContent>
           <div className="space-y-6">
-            <Card className="bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-400">
+            <Card className="bg-gradient-to-r from-red-100 to-red-200 border-2 border-red-400">
               <CardContent className="p-6">
                 <h2 className="text-xl font-bold text-gray-800 text-center leading-relaxed">
                   {currentQuestion.question}
@@ -151,7 +151,7 @@ const GameScreen = ({ questions, playerName, onGameComplete }: GameScreenProps) 
                 
                 <Button
                   onClick={handleNextQuestion}
-                  className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-8 text-lg"
+                  className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-3 px-8 text-lg"
                 >
                   {currentQuestionIndex < questions.length - 1 ? '➡️ Próxima Pergunta' : '🏁 Ver Resultado Final'}
                 </Button>
