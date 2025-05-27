@@ -1,13 +1,18 @@
-
 import { Question, questions } from '@/data/questions';
 
 export const getRandomQuestions = (count: number = 8): Question[] => {
   const shuffled = [...questions].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count).map(question => ({
-    ...question,
-    options: shuffleArray([...question.options]),
-    correctAnswer: getNewCorrectAnswerIndex(question.options, question.correctAnswer)
-  }));
+  return shuffled.slice(0, count).map(question => {
+    const correctOptionText = question.options[question.correctAnswer];
+    const shuffledOptions = shuffleArray([...question.options]);
+    const newCorrectIndex = shuffledOptions.indexOf(correctOptionText);
+    
+    return {
+      ...question,
+      options: shuffledOptions,
+      correctAnswer: newCorrectIndex
+    };
+  });
 };
 
 const shuffleArray = (array: string[]): string[] => {
