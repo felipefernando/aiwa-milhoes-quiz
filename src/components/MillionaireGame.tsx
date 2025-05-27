@@ -18,7 +18,7 @@ const MillionaireGame = () => {
   const handleStartGame = (firstName: string, lastName: string) => {
     const formattedName = formatPlayerName(firstName, lastName);
     setPlayerName(formattedName);
-    setQuestions(getRandomQuestions(8));
+    setQuestions(getRandomQuestions(5));
     setGameState('playing');
     console.log(`Jogo iniciado para: ${formattedName}`);
   };
