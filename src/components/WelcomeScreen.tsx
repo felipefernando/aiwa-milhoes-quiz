@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,53 +12,6 @@ interface WelcomeScreenProps {
 const WelcomeScreen = ({ onStartGame }: WelcomeScreenProps) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [audio] = useState(new Audio('/ShowMilhao.mp3'));
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    const initAudio = async () => {
-      try {
-        audio.loop = false;
-        await audio.play();
-        setIsPlaying(true);
-      } catch (error) {
-        console.error("Erro ao iniciar áudio:", error);
-      }
-    };
-
-    // Inicia o áudio ao montar o componente
-    initAudio();
-
-    // Cleanup ao desmontar
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, []); // Array de dependências vazio para executar apenas na montagem
-
-  const toggleAudio = () => {
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-    } else {
-      audio.play().catch(error => {
-        console.error("Erro ao tocar áudio:", error);
-      });
-      setIsPlaying(true);
-    }
-  };
-
-  useEffect(() => {
-    audio.addEventListener('ended', () => {
-      audio.currentTime = 0;
-      audio.play().catch(console.error);
-    });
-
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, [audio]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,13 +24,6 @@ const WelcomeScreen = ({ onStartGame }: WelcomeScreenProps) => {
     <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-700 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black opacity-20"></div>
       
-      <Button
-        onClick={toggleAudio}
-        className="absolute top-4 right-4 z-20 bg-red-600 hover:bg-red-700"
-      >
-        {isPlaying ? '🔇 Pausar Música' : '🔊 Tocar Música'}
-      </Button>
-      
       <Card className="relative z-10 w-full max-w-lg bg-gradient-to-br from-red-50 to-red-100 border-4 border-red-500 shadow-2xl">
         <CardHeader className="text-center pb-6">
           <div className="flex justify-center items-center gap-4 mb-4">
@@ -86,7 +33,7 @@ const WelcomeScreen = ({ onStartGame }: WelcomeScreenProps) => {
           </div>
           
           <CardTitle className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-2">
-            AIWA de MILHÕES - 5S
+            AIWA de MILHÕES
           </CardTitle>
           
           <p className="text-lg text-gray-700 font-semibold">
