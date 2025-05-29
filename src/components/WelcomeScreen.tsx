@@ -33,7 +33,7 @@ const WelcomeScreen = ({ onStartGame }: WelcomeScreenProps) => {
           </div>
           
           <CardTitle className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-2">
-            AIWA de MILHÕES
+            AIWA de MILHÕES - 5S
           </CardTitle>
           
           <p className="text-lg text-gray-700 font-semibold">
@@ -43,7 +43,7 @@ const WelcomeScreen = ({ onStartGame }: WelcomeScreenProps) => {
           <div className="mt-4 p-4 bg-white rounded-lg border-2 border-red-200">
             <h3 className="text-xl font-bold text-gray-800 mb-2">Como Jogar:</h3>
             <ul className="text-left text-gray-700 space-y-1">
-              <li>• 8 perguntas sobre 5S</li>
+              <li>• 5 perguntas sobre 5S</li>
               <li>• Múltipla escolha</li>
               <li>• Ganhe pontos a cada acerto</li>
               <li>• Torne-se um expert em 5S!</li>

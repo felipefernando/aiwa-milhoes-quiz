@@ -82,7 +82,7 @@ const GameScreen = ({ questions, playerName, onGameComplete }: GameScreenProps) 
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
               <Trophy className="w-6 h-6 text-red-600" />
-              <span className="font-bold text-gray-800">AIWA de MILHÕES</span>
+              <span className="font-bold text-gray-800">AIWA de MILHÕES - 5S</span>
             </div>
             
             <div className="flex items-center gap-4">
